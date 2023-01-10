@@ -21,4 +21,4 @@ Observer <- sample(c("Martina M", "Betty M", "Lilly M"),
 Bat_Data <- data.frame(Species, Limb_width, Limb_length, 
                        Observer)
 
-write.csv(Bat_Data, "C:/Users/marti/Desktop/BIOL432_Assignment1\\measurements.csv")
+write.csv(Bat_Data, "C:/Users/marti/Desktop/BIOL432_Assignment1\\measurements.csv", row.names=F)
