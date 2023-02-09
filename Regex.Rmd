@@ -1,0 +1,42 @@
+---
+title: "Regex"
+author: "Martina Mileva"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r}
+library(dplyr)
+```
+
+
+Importing the data set from W1 assignment:
+
+```{r}
+MData <- read.csv("measurements.csv")
+```
+
+
+Using `dplyr` and regular expressions to add a the new column:
+
+```{r}
+MData <- MData %>%
+  mutate(Sp=sub("(\\w)\\w+","\\1\\.", MData$Species))
+```
+
+
+Creating new data set with reordered columns:
+
+```{r}
+MeasShort <- MData %>% 
+  select(-Species) %>%
+  relocate(Sp, .before = Limb_width)
+```
+
+
+Saving the new data set: 
+
+```{r}
+write.csv(MeasShort, "C:/Users/marti/Desktop/BIOL 432/Week 01/BIOL432_Assignment1\\MeasShort.csv", row.names=F)
+```
+
